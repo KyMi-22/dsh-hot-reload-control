@@ -1,6 +1,6 @@
 {
   "name": "dsh-hot-reload-control",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "DSH 设置页的一键「热重载 / 重启应用」下拉按钮：热重载通过官方 HMR 重新组合插件树并刷新页面，重启由分离助手重新拉起桌面应用。",
   "type": "module",
   "main": "lib/index.js",

@@ -22,9 +22,25 @@
 
 ## 安装
 
-### 从下载的 tgz 装（推荐，不依赖 GitHub）
+### 从 GitHub 安装（推荐）
 
-GitHub 连不上的时候用这个——只要浏览器能打开下载页面就行。
+1. 打开 DSH 侧边栏的 **插件**。
+2. 点右上角 **添加插件**。
+3. 填入仓库地址：
+
+   ```
+   https://github.com/KyMi-22/dsh-hot-reload-control
+   ```
+
+4. 点 **安装**，等待完成。
+5. 在「已安装插件」里找到 **热重载 / 重启 (dsh-hot-reload-control)**，把右侧开关打开。卡片上如果显示「立即启用」，直接点它。
+6. 打开设置，按钮应该在「打开配置文件」右边。没出现就刷新一次页面。
+
+> 这一步会通过 git 访问 github.com。如果连不上或者一直超时，用下面的 tgz 方式。
+
+### 从下载的 tgz 装（GitHub 连不上时用）
+
+只要浏览器能打开下载页面就行，不经过 git。
 
 1. 打开 [Releases](https://github.com/KyMi-22/dsh-hot-reload-control/releases)，下载最新的 `dsh-hot-reload-control-x.y.z.tgz`
 2. 打开 DSH，侧边栏底部点 **设置 → 插件 → 添加插件**
@@ -43,22 +59,6 @@ GitHub 连不上的时候用这个——只要浏览器能打开下载页面就�
 ```powershell
 dsh plugin --profile desktop add C:\Users\你\Downloads\dsh-hot-reload-control-1.0.2.tgz
 ```
-
-### 从 GitHub 安装
-
-1. 打开 DSH 侧边栏的 **插件**。
-2. 点右上角 **添加插件**。
-3. 填入仓库地址：
-
-   ```
-   https://github.com/KyMi-22/dsh-hot-reload-control
-   ```
-
-4. 点 **安装**，等待完成。
-5. 在「已安装插件」里找到 **热重载 / 重启 (dsh-hot-reload-control)**，把右侧开关打开。卡片上如果显示「立即启用」，直接点它。
-6. 打开设置，按钮应该在「打开配置文件」右边。没出现就刷新一次页面。
-
-> 这一步会通过 git 访问 github.com。网络受限时改用上面的 tgz 方式。
 
 ### 从本地目录安装
 
