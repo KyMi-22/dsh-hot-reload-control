@@ -60,29 +60,6 @@
 dsh plugin --profile desktop add C:\Users\你\Downloads\dsh-hot-reload-control-1.0.2.tgz
 ```
 
-### 从本地目录安装
-
-适合开发，或者不想走网络：
-
-1. 插件页 → **添加插件**。
-2. 填入本地目录：
-
-   ```
-   C:\path\to\dsh-hot-reload-control
-   ```
-
-3. 安装后回到「已安装插件」，打开右侧开关。
-
-如果本机有 `dsh` CLI，也可以：
-
-```powershell
-dsh plugin --profile desktop add link:C:\path\to\dsh-hot-reload-control
-```
-
-然后在插件页把它的开关打开。
-
-> 插件页只列出 profile 里登记的 bundle。只把文件夹放进 `node_modules` 不会出现在这里。
-
 ### 命令行安装 GitHub 版本
 
 ```powershell
