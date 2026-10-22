@@ -4,15 +4,20 @@
   "description": "DSH 设置页的一键「热重载 / 重启应用」下拉按钮：热重载通过官方 HMR 重新组合插件树并刷新页面，重启由分离助手重新拉起桌面应用。",
   "type": "module",
   "main": "lib/index.js",
+  "icon": "./icon.png",
   "exports": {
     ".": "./lib/index.js",
     "./client": "./lib/client.js",
+    "./icon.svg": "./icon.svg",
+    "./icon.png": "./icon.png",
     "./package.json": "./package.json",
     "./locale/*.json": "./locale/*.json"
   },
   "files": [
     "lib",
     "cordis.patch.yml",
+    "icon.svg",
+    "icon.png",
     "locale",
     "README.md"
   ],
