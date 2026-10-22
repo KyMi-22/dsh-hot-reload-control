@@ -36,14 +36,7 @@
 5. 在「已安装插件」里找到 **热重载 / 重启 (dsh-hot-reload-control)**，把右侧开关打开。卡片上如果显示「立即启用」，直接点它。
 6. 打开设置，按钮应该在「打开配置文件」右边。没出现就刷新一次页面。
 
-> 当前仓库是私有的。换一台机器安装前，先让本机 Git 能访问它：
->
-> ```powershell
-> gh auth login
-> gh auth setup-git
-> ```
->
-> 或者把仓库设为公开。只在本机使用的话，直接用下面的本地目录方式更省事。
+> 只在本机使用、不想走网络的话，用下面的本地目录方式更省事。
 
 ### 从本地目录安装
 
@@ -91,6 +84,35 @@ dsh plugin --profile desktop add https://github.com/KyMi-22/dsh-hot-reload-contr
 3. DSH 关闭后会自动重新打开。
 
 ## 常见问题
+
+**安装一直超时，换安装源也没用**
+
+需要代理才能访问 GitHub 的网络环境里，这是最常见的原因：**`git` 和 `pnpm` 默认都不读系统代理**（系统代理只对浏览器生效）。
+
+安装界面里的「安装源」只改 npm registry；而 GitHub 仓库形式最后要连 github.com，那一步走的是 `git`——所以换源不会好。
+
+先确认代理端口（Windows：设置 → 网络和 Internet → 代理），然后：
+
+```powershell
+# git 走代理——GitHub 仓库安装要用它
+git config --global http.proxy http://127.0.0.1:7890
+git config --global https.proxy http://127.0.0.1:7890
+
+# npm/pnpm 走代理——拉 npm 包要用它
+npm config set proxy http://127.0.0.1:7890
+npm config set https-proxy http://127.0.0.1:7890
+```
+
+把 `7890` 换成你自己的端口。配完回 DSH 界面重试，不用重启。
+
+不用代理时还原：
+
+```powershell
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+npm config delete proxy
+npm config delete https-proxy
+```
 
 **设置里没有按钮**
 
