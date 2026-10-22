@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Hot reload / Restart (dsh-hot-reload-control)",
+    "description": "Adds a split dropdown beside Open configuration file in Settings. Hot reload recomposes the plugin tree through the official HMR service and refreshes the page without writing configuration; Restart closes and relaunches the desktop app through a detached helper."
+  }
+}

@@ -1,0 +1,8 @@
+# dsh-hot-reload-control profile patch layer.
+#
+# The host half owns the small same-origin JSON route used by the settings
+# dropdown; the browser half is discovered by dsh-client-modules through this
+# package's `dsh.client` declaration, exactly like the shipped ui-* packages.
+- insert:
+    - id: hot-reload-control
+      name: 'dsh-hot-reload-control'
