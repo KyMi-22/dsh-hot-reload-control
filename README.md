@@ -22,7 +22,29 @@
 
 ## 安装
 
-### 从 GitHub 安装（推荐）
+### 从下载的 tgz 装（推荐，不依赖 GitHub）
+
+GitHub 连不上的时候用这个——只要浏览器能打开下载页面就行。
+
+1. 打开 [Releases](https://github.com/KyMi-22/dsh-hot-reload-control/releases)，下载最新的 `dsh-hot-reload-control-x.y.z.tgz`
+2. 打开 DSH，侧边栏底部点 **设置 → 插件 → 添加插件**
+3. 在「包名或地址」里填 tgz 的**完整路径**，例如：
+
+   ```
+   C:\Users\你\Downloads\dsh-hot-reload-control-1.0.2.tgz
+   ```
+
+4. 点 **安装**，然后在「已安装插件」里把 **热重载 / 重启** 右侧的开关打开
+
+> 路径里的反斜杠直接填，不用转义。不知道完整路径的话，在文件管理器里右键 tgz →「复制文件地址」。
+
+命令行装 tgz 同理：
+
+```powershell
+dsh plugin --profile desktop add C:\Users\你\Downloads\dsh-hot-reload-control-1.0.2.tgz
+```
+
+### 从 GitHub 安装
 
 1. 打开 DSH 侧边栏的 **插件**。
 2. 点右上角 **添加插件**。
@@ -36,11 +58,11 @@
 5. 在「已安装插件」里找到 **热重载 / 重启 (dsh-hot-reload-control)**，把右侧开关打开。卡片上如果显示「立即启用」，直接点它。
 6. 打开设置，按钮应该在「打开配置文件」右边。没出现就刷新一次页面。
 
-> 只在本机使用、不想走网络的话，用下面的本地目录方式更省事。
+> 这一步会通过 git 访问 github.com。网络受限时改用上面的 tgz 方式。
 
 ### 从本地目录安装
 
-适合开发，或者不想处理仓库权限：
+适合开发，或者不想走网络：
 
 1. 插件页 → **添加插件**。
 2. 填入本地目录：
@@ -84,35 +106,6 @@ dsh plugin --profile desktop add https://github.com/KyMi-22/dsh-hot-reload-contr
 3. DSH 关闭后会自动重新打开。
 
 ## 常见问题
-
-**安装一直超时，换安装源也没用**
-
-需要代理才能访问 GitHub 的网络环境里，这是最常见的原因：**`git` 和 `pnpm` 默认都不读系统代理**（系统代理只对浏览器生效）。
-
-安装界面里的「安装源」只改 npm registry；而 GitHub 仓库形式最后要连 github.com，那一步走的是 `git`——所以换源不会好。
-
-先确认代理端口（Windows：设置 → 网络和 Internet → 代理），然后：
-
-```powershell
-# git 走代理——GitHub 仓库安装要用它
-git config --global http.proxy http://127.0.0.1:7890
-git config --global https.proxy http://127.0.0.1:7890
-
-# npm/pnpm 走代理——拉 npm 包要用它
-npm config set proxy http://127.0.0.1:7890
-npm config set https-proxy http://127.0.0.1:7890
-```
-
-把 `7890` 换成你自己的端口。配完回 DSH 界面重试，不用重启。
-
-不用代理时还原：
-
-```powershell
-git config --global --unset http.proxy
-git config --global --unset https.proxy
-npm config delete proxy
-npm config delete https-proxy
-```
 
 **设置里没有按钮**
 
